@@ -4,8 +4,8 @@ import java.time.Instant;
 
 public abstract class AuditableEntity {
 
-    protected Instant createdAt;
-    protected Instant updatedAt;
+    private Instant createdAt;
+    private Instant updatedAt;
 
     public Instant getCreatedAt() {
         return createdAt;

@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class DocumentEntity extends AuditableEntity {
 
-    Long id;
-    String name;
-    String path;
-    ProjectEntity project;
+    private Long id;
+    private String name;
+    private String path;
+    private ProjectEntity project;
 
     protected DocumentEntity() {
 
