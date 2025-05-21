@@ -31,4 +31,25 @@ public abstract class AuditableEntity {
         this.updatedAt = Instant.now();
     }
 
+    public abstract static class Builder<T extends Builder<T>> {
+
+        protected Instant createdAt;
+        protected Instant updatedAt;
+
+        @SuppressWarnings("unchecked")
+        public T createdAt(Instant createdAt) {
+            this.createdAt = createdAt;
+            return (T) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public T updatedAt(Instant updatedAt) {
+            this.updatedAt = updatedAt;
+            return (T) this;
+        }
+
+        protected abstract T self();
+
+    }
+
 }

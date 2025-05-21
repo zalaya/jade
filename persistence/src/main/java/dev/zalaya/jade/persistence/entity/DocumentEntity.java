@@ -1,6 +1,6 @@
 package dev.zalaya.jade.persistence.entity;
 
-import java.time.Instant;
+import java.util.Objects;
 
 public class DocumentEntity extends AuditableEntity {
 
@@ -9,7 +9,9 @@ public class DocumentEntity extends AuditableEntity {
     String path;
     ProjectEntity project;
 
-    public DocumentEntity() {}
+    protected DocumentEntity() {
+
+    }
 
     private DocumentEntity(Builder builder) {
         this.id = builder.id;
@@ -56,14 +58,26 @@ public class DocumentEntity extends AuditableEntity {
         return new Builder();
     }
 
-    public static class Builder {
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof DocumentEntity that)) {
+            return false;
+        }
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    public static class Builder extends AuditableEntity.Builder<Builder> {
 
         private Long id;
         private String name;
         private String path;
         private ProjectEntity project;
-        private Instant createdAt;
-        private Instant updatedAt;
 
         public Builder id(Long id) {
             this.id = id;
@@ -85,18 +99,13 @@ public class DocumentEntity extends AuditableEntity {
             return this;
         }
 
-        public Builder createdAt(Instant createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-        public Builder updatedAt(Instant updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
         public DocumentEntity build() {
             return new DocumentEntity(this);
+        }
+
+        @Override
+        protected Builder self() {
+            return this;
         }
 
     }
