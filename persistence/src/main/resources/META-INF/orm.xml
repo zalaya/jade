@@ -5,10 +5,23 @@
     xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm_3_0.xsd"
     version="3.0"
 >
+    <!-- Super Entities -->
+    <mapped-superclass class="dev.zalaya.jade.persistence.entity.AuditableEntity" access="PROPERTY">
+        <pre-persist method-name="onPrePersist"/>
+        <pre-update  method-name="onPreUpdate"/>
+        <attributes>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at"/>
+            </basic>
+        </attributes>
+    </mapped-superclass>
+
+    <!-- Entities -->
     <entity class="dev.zalaya.jade.persistence.entity.ProjectEntity" access="PROPERTY">
         <table name="projects"/>
-        <pre-persist method-name="onPrePersist"/>
-        <pre-update method-name="onPreUpdate"/>
         <attributes>
             <id name="id">
                 <column name="id"/>
@@ -20,12 +33,24 @@
             <basic name="path">
                 <column name="path" nullable="false"/>
             </basic>
-            <basic name="createdAt">
-                <column name="created_at" nullable="false" updatable="false"/>
+        </attributes>
+    </entity>
+    <entity class="dev.zalaya.jade.persistence.entity.DocumentEntity" access="PROPERTY">
+        <table name="documents"/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="name">
+                <column name="name" nullable="false"/>
             </basic>
-            <basic name="updatedAt">
-                <column name="updated_at"/>
+            <basic name="path">
+                <column name="path" nullable="false"/>
             </basic>
+            <many-to-one name="project">
+                <join-column name="project_id" referenced-column-name="id" nullable="false"/>
+            </many-to-one>
         </attributes>
     </entity>
 </entity-mappings>

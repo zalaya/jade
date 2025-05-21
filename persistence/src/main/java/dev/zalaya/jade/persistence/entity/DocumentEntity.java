@@ -2,18 +2,20 @@ package dev.zalaya.jade.persistence.entity;
 
 import java.time.Instant;
 
-public class ProjectEntity extends AuditableEntity {
+public class DocumentEntity extends AuditableEntity {
 
-    private Long id;
-    private String name;
-    private String path;
+    Long id;
+    String name;
+    String path;
+    ProjectEntity project;
 
-    public ProjectEntity() {}
+    public DocumentEntity() {}
 
-    private ProjectEntity(Builder builder) {
+    private DocumentEntity(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.path = builder.path;
+        this.project = builder.project;
         setCreatedAt(builder.createdAt);
         setUpdatedAt(builder.updatedAt);
     }
@@ -42,6 +44,14 @@ public class ProjectEntity extends AuditableEntity {
         this.path = path;
     }
 
+    public ProjectEntity getProject() {
+        return project;
+    }
+
+    public void setProject(ProjectEntity project) {
+        this.project = project;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -51,6 +61,7 @@ public class ProjectEntity extends AuditableEntity {
         private Long id;
         private String name;
         private String path;
+        private ProjectEntity project;
         private Instant createdAt;
         private Instant updatedAt;
 
@@ -69,6 +80,11 @@ public class ProjectEntity extends AuditableEntity {
             return this;
         }
 
+        public Builder project(ProjectEntity project) {
+            this.project = project;
+            return this;
+        }
+
         public Builder createdAt(Instant createdAt) {
             this.createdAt = createdAt;
             return this;
@@ -79,8 +95,8 @@ public class ProjectEntity extends AuditableEntity {
             return this;
         }
 
-        public ProjectEntity build() {
-            return new ProjectEntity(this);
+        public DocumentEntity build() {
+            return new DocumentEntity(this);
         }
 
     }
