@@ -28,10 +28,10 @@
                 <generated-value strategy="IDENTITY"/>
             </id>
             <basic name="name">
-                <column name="name" nullable="false" unique="true"/>
+                <column name="name" nullable="false"/>
             </basic>
             <basic name="path">
-                <column name="path" nullable="false"/>
+                <column name="path" nullable="false" unique="true"/>
             </basic>
         </attributes>
     </entity>
@@ -46,7 +46,7 @@
                 <column name="name" nullable="false"/>
             </basic>
             <basic name="path">
-                <column name="path" nullable="false"/>
+                <column name="path" nullable="false" unique="true"/>
             </basic>
             <many-to-one name="project">
                 <join-column name="project_id" referenced-column-name="id" nullable="false"/>
