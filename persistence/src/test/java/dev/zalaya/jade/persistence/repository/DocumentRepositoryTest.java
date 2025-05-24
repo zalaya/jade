@@ -80,6 +80,44 @@ class DocumentRepositoryTest {
     }
 
     @Test
+    void givenNewDocumentWithoutProject_whenSave_thenThrowsDataIntegrityViolationException() {
+        // Given
+        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(null);
+
+        // When
+        Executable executable = () -> repository.saveAndFlush(document);
+
+        // Then
+        assertThatThrownBy(executable::execute).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void givenNewDocumentWithTransientProject_whenSave_thenThrowsInvalidDataAccessApiUsageException() {
+        // Given
+        ProjectEntity project = aProjectEntityWithDefaultNameAndPath();
+        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(project);
+
+        // When
+        Executable executable = () -> repository.saveAndFlush(document);
+
+        // Then
+        assertThatThrownBy(executable::execute).isInstanceOf(InvalidDataAccessApiUsageException.class);
+    }
+
+    @Test
+    void givenNewDocumentWithNonExistentProject_whenSave_thenThrowsDataIntegrityViolationException() {
+        // Given
+        ProjectEntity project = aProjectEntityWithDefaultIdNameAndPath();
+        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(project);
+
+        // When
+        Executable executable = () -> repository.saveAndFlush(document);
+
+        // Then
+        assertThatThrownBy(executable::execute).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
     void givenPersistedDocument_whenSave_thenUpdateAtIsUpdated() {
         // Given
         ProjectEntity persistedProject = manager.getReference(ProjectEntity.class, 1L);
@@ -94,44 +132,6 @@ class DocumentRepositoryTest {
         // Then
         assertThat(updatedDocument.getCreatedAt()).isEqualTo(persistedDocument.getCreatedAt());
         assertThat(updatedDocument.getUpdatedAt()).isNotNull().isAfterOrEqualTo(persistedDocument.getUpdatedAt());
-    }
-
-    @Test
-    void givenDocumentWithoutProject_whenSave_thenThrowsDataIntegrityViolationException() {
-        // Given
-        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(null);
-
-        // When
-        Executable executable = () -> repository.saveAndFlush(document);
-
-        // Then
-        assertThatThrownBy(executable::execute).isInstanceOf(DataIntegrityViolationException.class);
-    }
-
-    @Test
-    void givenDocumentWithTransientProject_whenSave_thenThrowsInvalidDataAccessApiUsageException() {
-        // Given
-        ProjectEntity project = aProjectEntityWithDefaultNameAndPath();
-        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(project);
-
-        // When
-        Executable executable = () -> repository.saveAndFlush(document);
-
-        // Then
-        assertThatThrownBy(executable::execute).isInstanceOf(InvalidDataAccessApiUsageException.class);
-    }
-
-    @Test
-    void givenDocumentWithNonExistentProject_whenSave_thenThrowsDataIntegrityViolationException() {
-        // Given
-        ProjectEntity project = aProjectEntityWithDefaultIdNameAndPath();
-        DocumentEntity document = aDocumentEntityWithDefaultNameAndPathWithProject(project);
-
-        // When
-        Executable executable = () -> repository.saveAndFlush(document);
-
-        // Then
-        assertThatThrownBy(executable::execute).isInstanceOf(DataIntegrityViolationException.class);
     }
 
 }
