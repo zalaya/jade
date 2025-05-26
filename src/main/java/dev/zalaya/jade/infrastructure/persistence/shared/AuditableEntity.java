@@ -1,4 +1,4 @@
-package dev.zalaya.jade.infrastructure.persistence.entity;
+package dev.zalaya.jade.infrastructure.persistence.shared;
 
 import java.time.Instant;
 
@@ -46,6 +46,14 @@ public abstract class AuditableEntity {
         public T updatedAt(Instant updatedAt) {
             this.updatedAt = updatedAt;
             return (T) this;
+        }
+
+        public Instant getCreatedAt() {
+            return createdAt;
+        }
+
+        public Instant getUpdatedAt() {
+            return updatedAt;
         }
 
         protected abstract T self();

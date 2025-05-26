@@ -1,8 +1,8 @@
-package dev.zalaya.jade.infrastructure.persistence.mapper;
+package dev.zalaya.jade.infrastructure.persistence.document;
 
 import dev.zalaya.jade.domain.model.Document;
-import dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntity;
 
+import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityMapper;
 import org.mapstruct.*;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = ProjectEntityMapper.class)

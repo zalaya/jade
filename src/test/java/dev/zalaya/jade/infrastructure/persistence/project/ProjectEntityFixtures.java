@@ -1,4 +1,4 @@
-package dev.zalaya.jade.infrastructure.persistence.entity;
+package dev.zalaya.jade.infrastructure.persistence.project;
 
 public class ProjectEntityFixtures {
 

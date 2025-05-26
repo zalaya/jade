@@ -1,17 +1,16 @@
-package dev.zalaya.jade.infrastructure.persistence.mapper;
+package dev.zalaya.jade.infrastructure.persistence.document;
 
 import dev.zalaya.jade.domain.model.*;
 import dev.zalaya.jade.infrastructure.persistence.annotation.MapperTestConfiguration;
-import dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntity;
 
-import dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntity;
+import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static dev.zalaya.jade.infrastructure.domain.model.DocumentFixtures.aDocumentWithDefaultNameAndPathWithProject;
 import static dev.zalaya.jade.infrastructure.domain.model.ProjectFixtures.aProjectWithDefaultNameAndPath;
-import static dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntityFixtures.aDocumentEntityWithDefaultNameAndPathWithProjectEntity;
-import static dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntityFixtures.aProjectEntityWithDefaultNameAndPath;
+import static dev.zalaya.jade.infrastructure.persistence.document.DocumentEntityFixtures.aDocumentEntityWithDefaultNameAndPathWithProjectEntity;
+import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFixtures.aProjectEntityWithDefaultNameAndPath;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

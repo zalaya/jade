@@ -1,8 +1,8 @@
-package dev.zalaya.jade.infrastructure.persistence.repository;
+package dev.zalaya.jade.infrastructure.persistence.document;
 
-import dev.zalaya.jade.infrastructure.persistence.entity.*;
 import dev.zalaya.jade.infrastructure.persistence.annotation.PersistenceTestConfiguration;
 
+import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.*;
 import org.springframework.test.context.jdbc.Sql;
 
-import static dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntityFixtures.*;
-import static dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntityFixtures.*;
+import static dev.zalaya.jade.infrastructure.persistence.document.DocumentEntityFixtures.*;
+import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFixtures.*;
 
 import static org.assertj.core.api.Assertions.*;
 

@@ -1,14 +1,13 @@
-package dev.zalaya.jade.infrastructure.persistence.repository;
+package dev.zalaya.jade.infrastructure.persistence.project;
 
 import dev.zalaya.jade.infrastructure.persistence.annotation.PersistenceTestConfiguration;
-import dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntity;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 
-import static dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntityFixtures.*;
+import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFixtures.*;
 
 import static org.assertj.core.api.Assertions.*;
 

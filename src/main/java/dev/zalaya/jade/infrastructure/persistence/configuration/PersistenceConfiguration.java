@@ -12,8 +12,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
     DataSourceAutoConfiguration.class,
     HibernateJpaAutoConfiguration.class
 })
-@EnableJpaRepositories(basePackages = "dev.zalaya.jade.infrastructure.persistence.repository")
-@EntityScan(basePackages = "dev.zalaya.jade.infrastructure.persistence.entity")
+@EnableJpaRepositories(basePackages = "dev.zalaya.jade.infrastructure.persistence")
+@EntityScan(basePackages = "dev.zalaya.jade.infrastructure.persistence")
 public class PersistenceConfiguration {
 
 }
