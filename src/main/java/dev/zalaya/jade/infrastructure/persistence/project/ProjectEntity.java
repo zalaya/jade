@@ -2,12 +2,23 @@ package dev.zalaya.jade.infrastructure.persistence.project;
 
 import dev.zalaya.jade.infrastructure.persistence.shared.AuditableEntity;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "projects")
 public class ProjectEntity extends AuditableEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "path", nullable = false, unique = true)
     private String path;
 
     protected ProjectEntity() {

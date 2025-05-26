@@ -3,6 +3,9 @@ package dev.zalaya.jade.infrastructure.persistence.document;
 import dev.zalaya.jade.domain.model.Document;
 import dev.zalaya.jade.domain.port.outbound.DocumentRepository;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class DocumentRepositoryAdapter implements DocumentRepository {
 
     private final DocumentJpaRepository repository;

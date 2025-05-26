@@ -3,6 +3,9 @@ package dev.zalaya.jade.infrastructure.persistence.project;
 import dev.zalaya.jade.domain.model.Project;
 import dev.zalaya.jade.domain.port.outbound.ProjectRepository;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class ProjectRepositoryAdapter implements ProjectRepository {
 
     private final ProjectJpaRepository repository;

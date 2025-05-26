@@ -1,10 +1,16 @@
 package dev.zalaya.jade.infrastructure.persistence.shared;
 
+import jakarta.persistence.*;
+
 import java.time.Instant;
 
+@MappedSuperclass
 public abstract class AuditableEntity {
 
+    @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
+
+    @Column(name = "updated_at")
     private Instant updatedAt;
 
     public Instant getCreatedAt() {
@@ -23,10 +29,12 @@ public abstract class AuditableEntity {
         this.updatedAt = updatedAt;
     }
 
+    @PrePersist
     public void onPrePersist() {
         this.createdAt = Instant.now();
     }
 
+    @PreUpdate
     public void onPreUpdate() {
         this.updatedAt = Instant.now();
     }

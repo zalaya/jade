@@ -3,13 +3,27 @@ package dev.zalaya.jade.infrastructure.persistence.document;
 import dev.zalaya.jade.infrastructure.persistence.shared.AuditableEntity;
 import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "documents")
 public class DocumentEntity extends AuditableEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "path", nullable = false, unique = true)
     private String path;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "project_id", nullable = false)
     private ProjectEntity project;
 
     protected DocumentEntity() {

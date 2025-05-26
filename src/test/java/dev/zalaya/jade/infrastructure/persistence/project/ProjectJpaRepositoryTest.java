@@ -1,17 +1,16 @@
 package dev.zalaya.jade.infrastructure.persistence.project;
 
-import dev.zalaya.jade.infrastructure.persistence.annotation.PersistenceTestConfiguration;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFixtures.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-@PersistenceTestConfiguration
+@DataJpaTest
 class ProjectJpaRepositoryTest {
 
     @Autowired
