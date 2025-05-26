@@ -1,17 +1,17 @@
 package dev.zalaya.jade.infrastructure.persistence.project;
 
 import dev.zalaya.jade.domain.model.Project;
-import dev.zalaya.jade.infrastructure.persistence.annotation.MapperTestConfiguration;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static dev.zalaya.jade.infrastructure.domain.model.ProjectFixtures.aProjectWithDefaultNameAndPath;
 import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFixtures.aProjectEntityWithDefaultNameAndPath;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@MapperTestConfiguration
+@SpringBootTest
 class ProjectEntityMapperTest {
 
     @Autowired
