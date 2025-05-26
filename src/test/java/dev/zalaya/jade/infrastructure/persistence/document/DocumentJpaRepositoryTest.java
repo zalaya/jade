@@ -1,12 +1,12 @@
 package dev.zalaya.jade.infrastructure.persistence.document;
 
-import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
+import dev.zalaya.jade.infrastructure.persistence.annotation.PersistenceTestConfiguration;
 
+import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.*;
 import org.springframework.test.context.jdbc.Sql;
 
@@ -15,7 +15,7 @@ import static dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityFi
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest
+@PersistenceTestConfiguration
 @Sql(statements = "INSERT INTO projects (id, name, path, created_at) VALUES (1, 'Project', '/project', CURRENT_TIMESTAMP)")
 class DocumentJpaRepositoryTest {
 
