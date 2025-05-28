@@ -1,7 +1,7 @@
 package dev.zalaya.jade.infrastructure.domain.model;
 
-import dev.zalaya.jade.domain.model.Document;
-import dev.zalaya.jade.domain.model.Project;
+import dev.zalaya.jade.domain.model.*;
+import dev.zalaya.jade.domain.vo.ProjectReference;
 
 public class DocumentFixture {
 
@@ -9,7 +9,7 @@ public class DocumentFixture {
 
     }
 
-    public static Document aDocumentWithDefaultNameAndPathWithProject(Project project) {
+    public static Document aDocumentWithDefaultNameAndPathWithProject(ProjectReference project) {
         return Document.builder()
             .name("Document")
             .path("/document")

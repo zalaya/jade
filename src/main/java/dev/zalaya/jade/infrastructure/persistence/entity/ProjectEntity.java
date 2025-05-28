@@ -2,7 +2,7 @@ package dev.zalaya.jade.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "projects")
@@ -16,8 +16,8 @@ public class ProjectEntity extends AuditableEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "path", nullable = false, unique = true)
-    private String path;
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<DocumentEntity> documents = new HashSet<>();
 
     protected ProjectEntity() {
 
@@ -26,7 +26,7 @@ public class ProjectEntity extends AuditableEntity {
     private ProjectEntity(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
-        this.path = builder.path;
+        this.documents = builder.documents;
         setCreatedAt(builder.getCreatedAt());
         setUpdatedAt(builder.getUpdatedAt());
     }
@@ -47,12 +47,12 @@ public class ProjectEntity extends AuditableEntity {
         this.name = name;
     }
 
-    public String getPath() {
-        return path;
+    public Set<DocumentEntity> getDocuments() {
+        return documents;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPath(Set<DocumentEntity> documents) {
+        this.documents = documents;
     }
 
     public static Builder builder() {
@@ -77,7 +77,7 @@ public class ProjectEntity extends AuditableEntity {
 
         private Long id;
         private String name;
-        private String path;
+        private Set<DocumentEntity> documents;
 
         public Builder id(Long id) {
             this.id = id;
@@ -89,8 +89,8 @@ public class ProjectEntity extends AuditableEntity {
             return this;
         }
 
-        public Builder path(String path) {
-            this.path = path;
+        public Builder documents(Set<DocumentEntity> documents) {
+            this.documents = documents;
             return this;
         }
 

@@ -1,8 +1,8 @@
-package dev.zalaya.jade.domain.port.outbound;
+package dev.zalaya.jade.domain.port.inbound;
 
 import dev.zalaya.jade.domain.model.Project;
 
-public interface ProjectRepository {
+public interface SaveProjectUseCase {
 
     Project save(Project project);
 

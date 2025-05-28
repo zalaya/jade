@@ -1,5 +1,7 @@
 package dev.zalaya.jade.domain.model;
 
+import dev.zalaya.jade.domain.vo.ProjectReference;
+
 import java.util.Objects;
 
 public final class Document {
@@ -7,9 +9,9 @@ public final class Document {
     private final Long id;
     private final String name;
     private final String path;
-    private final Project project;
+    private final ProjectReference project;
 
-    public Document(Long id, String name, String path, Project project) {
+    public Document(Long id, String name, String path, ProjectReference project) {
         this.id = id;
         this.name = name;
         this.path = path;
@@ -35,7 +37,7 @@ public final class Document {
         return path;
     }
 
-    public Project getProject() {
+    public ProjectReference getProject() {
         return project;
     }
 
@@ -62,7 +64,7 @@ public final class Document {
         private Long id;
         private String name;
         private String path;
-        private Project project;
+        private ProjectReference project;
 
         public Builder id(Long id) {
             this.id = id;
@@ -79,7 +81,7 @@ public final class Document {
             return this;
         }
 
-        public Builder project(Project project) {
+        public Builder project(ProjectReference project) {
             this.project = project;
             return this;
         }

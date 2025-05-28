@@ -1,23 +1,25 @@
 package dev.zalaya.jade.domain.model;
 
-import java.util.Objects;
+import dev.zalaya.jade.domain.vo.DocumentReference;
+
+import java.util.*;
 
 public final class Project {
 
     private final Long id;
     private final String name;
-    private final String path;
+    private final Set<DocumentReference> documents;
 
-    public Project(Long id, String name, String path) {
+    public Project(Long id, String name, Set<DocumentReference> documents) {
         this.id = id;
         this.name = name;
-        this.path = path;
+        this.documents = documents;
     }
 
     private Project(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
-        this.path = builder.path;
+        this.documents = builder.documents;
     }
 
     public Long getId() {
@@ -28,8 +30,8 @@ public final class Project {
         return name;
     }
 
-    public String getPath() {
-        return path;
+    public Set<DocumentReference> getDocuments() {
+        return documents;
     }
 
     public static Builder builder() {
@@ -54,7 +56,7 @@ public final class Project {
 
         private Long id;
         private String name;
-        private String path;
+        private Set<DocumentReference> documents;
 
         public Builder id(Long id) {
             this.id = id;
@@ -66,8 +68,8 @@ public final class Project {
             return this;
         }
 
-        public Builder path(String path) {
-            this.path = path;
+        public Builder documents(Set<DocumentReference> documents) {
+            this.documents = documents;
             return this;
         }
 

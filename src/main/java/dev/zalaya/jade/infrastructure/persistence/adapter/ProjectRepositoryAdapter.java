@@ -1,7 +1,7 @@
 package dev.zalaya.jade.infrastructure.persistence.adapter;
 
 import dev.zalaya.jade.domain.model.Project;
-import dev.zalaya.jade.domain.port.outbound.ProjectRepository;
+import dev.zalaya.jade.domain.port.outbound.persistence.ProjectRepository;
 import dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntity;
 import dev.zalaya.jade.infrastructure.persistence.mapper.ProjectEntityMapper;
 import dev.zalaya.jade.infrastructure.persistence.repository.ProjectJpaRepository;

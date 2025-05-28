@@ -1,7 +1,7 @@
 package dev.zalaya.jade.infrastructure.persistence.adapter;
 
 import dev.zalaya.jade.domain.model.Document;
-import dev.zalaya.jade.domain.port.outbound.DocumentRepository;
+import dev.zalaya.jade.domain.port.outbound.persistence.DocumentRepository;
 import dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntity;
 import dev.zalaya.jade.infrastructure.persistence.mapper.DocumentEntityMapper;
 import dev.zalaya.jade.infrastructure.persistence.repository.DocumentJpaRepository;
