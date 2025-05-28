@@ -3,9 +3,9 @@ package dev.zalaya.jade.infrastructure.domain.model;
 import dev.zalaya.jade.domain.model.Document;
 import dev.zalaya.jade.domain.model.Project;
 
-public class DocumentFixtures {
+public class DocumentFixture {
 
-    private DocumentFixtures() {
+    private DocumentFixture() {
 
     }
 

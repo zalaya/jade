@@ -1,4 +1,6 @@
-package dev.zalaya.jade.infrastructure.persistence.document;
+package dev.zalaya.jade.infrastructure.persistence.repository;
+
+import dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

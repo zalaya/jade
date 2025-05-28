@@ -1,8 +1,8 @@
-package dev.zalaya.jade.infrastructure.persistence.project;
+package dev.zalaya.jade.infrastructure.persistence.entity;
 
-public class ProjectEntityFixtures {
+public class ProjectEntityFixture {
 
-    private ProjectEntityFixtures() {
+    private ProjectEntityFixture() {
 
     }
 

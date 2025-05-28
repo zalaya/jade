@@ -14,7 +14,7 @@ public final class Project {
         this.path = path;
     }
 
-    public Project(Builder builder) {
+    private Project(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.path = builder.path;

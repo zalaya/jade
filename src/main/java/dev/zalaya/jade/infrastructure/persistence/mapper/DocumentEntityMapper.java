@@ -1,7 +1,7 @@
-package dev.zalaya.jade.infrastructure.persistence.document;
+package dev.zalaya.jade.infrastructure.persistence.mapper;
 
 import dev.zalaya.jade.domain.model.Document;
-import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntityMapper;
+import dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntity;
 
 import org.mapstruct.*;
 

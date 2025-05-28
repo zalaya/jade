@@ -1,6 +1,7 @@
-package dev.zalaya.jade.infrastructure.persistence.project;
+package dev.zalaya.jade.infrastructure.persistence.mapper;
 
 import dev.zalaya.jade.domain.model.Project;
+import dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntity;
 
 import org.mapstruct.*;
 

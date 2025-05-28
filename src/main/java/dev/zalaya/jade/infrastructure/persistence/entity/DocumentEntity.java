@@ -1,14 +1,12 @@
-package dev.zalaya.jade.infrastructure.persistence.project;
-
-import dev.zalaya.jade.infrastructure.persistence.shared.AuditableEntity;
+package dev.zalaya.jade.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
-@Table(name = "projects")
-public class ProjectEntity extends AuditableEntity {
+@Table(name = "documents")
+public class DocumentEntity extends AuditableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +19,19 @@ public class ProjectEntity extends AuditableEntity {
     @Column(name = "path", nullable = false, unique = true)
     private String path;
 
-    protected ProjectEntity() {
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "project_id", nullable = false)
+    private ProjectEntity project;
+
+    protected DocumentEntity() {
 
     }
 
-    private ProjectEntity(Builder builder) {
+    private DocumentEntity(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.path = builder.path;
+        this.project = builder.project;
         setCreatedAt(builder.getCreatedAt());
         setUpdatedAt(builder.getUpdatedAt());
     }
@@ -57,13 +60,21 @@ public class ProjectEntity extends AuditableEntity {
         this.path = path;
     }
 
+    public ProjectEntity getProject() {
+        return project;
+    }
+
+    public void setProject(ProjectEntity project) {
+        this.project = project;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof ProjectEntity that)) {
+        if (!(object instanceof DocumentEntity that)) {
             return false;
         }
 
@@ -80,6 +91,7 @@ public class ProjectEntity extends AuditableEntity {
         private Long id;
         private String name;
         private String path;
+        private ProjectEntity project;
 
         public Builder id(Long id) {
             this.id = id;
@@ -96,8 +108,13 @@ public class ProjectEntity extends AuditableEntity {
             return this;
         }
 
-        public ProjectEntity build() {
-            return new ProjectEntity(this);
+        public Builder project(ProjectEntity project) {
+            this.project = project;
+            return this;
+        }
+
+        public DocumentEntity build() {
+            return new DocumentEntity(this);
         }
 
         @Override

@@ -2,9 +2,9 @@ package dev.zalaya.jade.infrastructure.domain.model;
 
 import dev.zalaya.jade.domain.model.Project;
 
-public class ProjectFixtures {
+public class ProjectFixture {
 
-    private ProjectFixtures() {
+    private ProjectFixture() {
 
     }
 

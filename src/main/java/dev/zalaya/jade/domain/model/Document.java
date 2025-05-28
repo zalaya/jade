@@ -16,7 +16,7 @@ public final class Document {
         this.project = project;
     }
 
-    public Document(Builder builder) {
+    private Document(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.path = builder.path;

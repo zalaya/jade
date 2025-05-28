@@ -1,10 +1,8 @@
-package dev.zalaya.jade.infrastructure.persistence.document;
+package dev.zalaya.jade.infrastructure.persistence.entity;
 
-import dev.zalaya.jade.infrastructure.persistence.project.ProjectEntity;
+public class DocumentEntityFixture {
 
-public class DocumentEntityFixtures {
-
-    private DocumentEntityFixtures() {
+    private DocumentEntityFixture() {
 
     }
 
