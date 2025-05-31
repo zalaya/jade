@@ -1,3 +1,3 @@
-# Jade
+# Kora
 
-Java Auto Documentation Engine delivers a modular core to automatically generate, format, and manage project documentation with templates, plugins, and workflows.
+Kora is a self-hosted documentation management and versioning platform designed for organizations that prioritize data sovereignty and local infrastructure. It allows teams to create, manage, and version technical and business documentation without relying on external servers or cloud services.

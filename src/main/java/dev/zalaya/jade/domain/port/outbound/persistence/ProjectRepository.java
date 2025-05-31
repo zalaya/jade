@@ -1,9 +1,0 @@
-package dev.zalaya.jade.domain.port.outbound.persistence;
-
-import dev.zalaya.jade.domain.model.Project;
-
-public interface ProjectRepository {
-
-    Project save(Project project);
-
-}
