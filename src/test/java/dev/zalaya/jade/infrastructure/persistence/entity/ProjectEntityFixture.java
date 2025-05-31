@@ -1,37 +1,26 @@
 package dev.zalaya.jade.infrastructure.persistence.entity;
 
+import static dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntityFixture.*;
+
 public class ProjectEntityFixture {
 
     private ProjectEntityFixture() {
 
     }
 
-    public static ProjectEntity aProjectEntityWithDefaultNameAndPath() {
+    public static ProjectEntity aProjectEntityWithDefaultIdNameAndNoDocumentEntities() {
         return ProjectEntity.builder()
+            .id(1L)
             .name("Project")
-            .path("/project")
+            .documents(anEmptySetOfDocumentEntities())
             .build();
     }
 
-    public static ProjectEntity aProjectEntityWithDefaultPathWithName(String name) {
+    public static ProjectEntity aProjectEntityWithDefaultIdNameAndOnlyOneDocumentEntity() {
         return ProjectEntity.builder()
-            .name(name)
-            .path("/project")
-            .build();
-    }
-
-    public static ProjectEntity aProjectEntityWithDefaultNameWithPath(String path) {
-        return ProjectEntity.builder()
+            .id(1L)
             .name("Project")
-            .path(path)
-            .build();
-    }
-
-    public static  ProjectEntity aProjectEntityWithDefaultIdNameAndPath() {
-        return ProjectEntity.builder()
-            .id(999L)
-            .name("Project")
-            .path("/project")
+            .documents(aSetOfOnlyOneDefaultDocumentEntity())
             .build();
     }
 

@@ -1,52 +1,80 @@
 package dev.zalaya.jade.infrastructure.persistence.mapper;
 
+import dev.zalaya.jade.annotation.EntityMapperTestConfiguration;
 import dev.zalaya.jade.domain.model.Project;
-import dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntity;
+import dev.zalaya.jade.infrastructure.persistence.entity.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static dev.zalaya.jade.infrastructure.domain.model.ProjectFixture.aProjectWithDefaultNameAndPath;
-import static dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithDefaultNameAndPath;
+import static dev.zalaya.jade.domain.model.ProjectFixture.*;
+import static dev.zalaya.jade.domain.vo.DocumentReferenceFixture.aSetOfOnlyOneDefaultDocumentReference;
+import static dev.zalaya.jade.infrastructure.persistence.entity.DocumentEntityFixture.aSetOfOnlyOneDefaultDocumentEntity;
+import static dev.zalaya.jade.infrastructure.persistence.entity.ProjectEntityFixture.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
-@Import({ ProjectEntityMapperImpl.class })
+@EntityMapperTestConfiguration
 class ProjectEntityMapperTest {
 
     @Autowired
     private ProjectEntityMapper mapper;
 
     @Test
-    void givenProject_whenToEntity_thenReturnMappedProjectEntity() {
+    void givenProjectWithNoDocuments_whenToEntity_thenReturnValidProjectEntity() {
         // Given
-        Project project = aProjectWithDefaultNameAndPath();
+        Project project = aProjectWithDefaultIdNameAndNoDocumentReferences();
 
         // When
-        ProjectEntity projectEntity = mapper.toEntity(project);
+        ProjectEntity entity = mapper.toEntity(project);
 
         // Then
-        assertThat(projectEntity.getId()).isEqualTo(project.getId());
-        assertThat(projectEntity.getName()).isEqualTo(project.getName());
-        assertThat(projectEntity.getPath()).isEqualTo(project.getPath());
+        assertThat(entity.getId()).isEqualTo(1L);
+        assertThat(entity.getName()).isEqualTo("Project");
+        assertThat(entity.getDocuments()).isEmpty();
     }
 
     @Test
-    void givenProjectEntity_whenToDomain_thenReturnMappedProject() {
+    void givenProjectWithDocuments_whenToEntity_thenReturnValidProjectEntity() {
         // Given
-        ProjectEntity projectEntity = aProjectEntityWithDefaultNameAndPath();
+        Project project = aProjectWithDefaultIdNameAndOnlyOneDocumentReference();
 
         // When
-        Project project = mapper.toDomain(projectEntity);
+        ProjectEntity entity = mapper.toEntity(project);
 
         // Then
-        assertThat(project.getId()).isEqualTo(projectEntity.getId());
-        assertThat(project.getName()).isEqualTo(projectEntity.getName());
-        assertThat(project.getPath()).isEqualTo(projectEntity.getPath());
+        assertThat(entity.getId()).isEqualTo(1L);
+        assertThat(entity.getName()).isEqualTo("Project");
+        assertThat(entity.getDocuments()).isEqualTo(aSetOfOnlyOneDefaultDocumentEntity());
     }
+
+    @Test
+    void givenProjectEntityWithNoDocumentEntities_whenToDomain_thenReturnValidProject() {
+        // Given
+        ProjectEntity entity = aProjectEntityWithDefaultIdNameAndNoDocumentEntities();
+
+        // When
+        Project project = mapper.toDomain(entity);
+
+        // Then
+        assertThat(project.getId()).isEqualTo(1L);
+        assertThat(project.getName()).isEqualTo("Project");
+        assertThat(project.getDocuments()).isEmpty();
+    }
+
+    @Test
+    void givenProjectEntityWithDocumentEntities_whenToDomain_thenReturnValidProject() {
+        // Given
+        ProjectEntity entity = aProjectEntityWithDefaultIdNameAndOnlyOneDocumentEntity();
+
+        // When
+        Project project = mapper.toDomain(entity);
+
+        // Then
+        assertThat(project.getId()).isEqualTo(1L);
+        assertThat(project.getName()).isEqualTo("Project");
+        assertThat(project.getDocuments()).isEqualTo(aSetOfOnlyOneDefaultDocumentReference());
+    }
+
 
 }

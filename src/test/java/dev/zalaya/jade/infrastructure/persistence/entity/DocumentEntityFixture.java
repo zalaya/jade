@@ -1,33 +1,28 @@
 package dev.zalaya.jade.infrastructure.persistence.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class DocumentEntityFixture {
 
     private DocumentEntityFixture() {
 
     }
 
-    public static DocumentEntity aDocumentEntityWithDefaultNameAndPathWithProjectEntity(ProjectEntity project) {
+    public static Set<DocumentEntity> anEmptySetOfDocumentEntities() {
+        return new HashSet<>(0);
+    }
+
+    public static DocumentEntity aDocumentEntityWithOnlyDefaultId() {
         return DocumentEntity.builder()
-            .name("Document")
-            .path("/document")
-            .project(project)
+            .id(1L)
             .build();
     }
 
-    public static DocumentEntity aDocumentEntityWithDefaultPathWithProjectAndName(ProjectEntity project, String name) {
-        return DocumentEntity.builder()
-            .name(name)
-            .path("/document")
-            .project(project)
-            .build();
-    }
-
-    public static DocumentEntity aDocumentEntityWithDefaultNameWithProjectAndPath(ProjectEntity project, String path) {
-        return DocumentEntity.builder()
-            .name("Document")
-            .path(path)
-            .project(project)
-            .build();
+    public static Set<DocumentEntity> aSetOfOnlyOneDefaultDocumentEntity() {
+        return Set.of(
+            aDocumentEntityWithOnlyDefaultId()
+        );
     }
 
 }
