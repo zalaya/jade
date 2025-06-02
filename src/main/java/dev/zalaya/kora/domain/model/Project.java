@@ -6,18 +6,15 @@ public final class Project {
 
     private final Long id;
     private final String name;
-    private final Set<Document> documents;
 
-    public Project(Long id, String name, Set<Document> documents) {
+    public Project(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.documents = documents;
     }
 
     private Project(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
-        this.documents = builder.documents;
     }
 
     public Long getId() {
@@ -26,10 +23,6 @@ public final class Project {
 
     public String getName() {
         return name;
-    }
-
-    public Set<Document> getDocuments() {
-        return documents;
     }
 
     public static Builder builder() {
@@ -54,7 +47,6 @@ public final class Project {
 
         private Long id;
         private String name;
-        private Set<Document> documents;
 
         public Builder id(Long id) {
             this.id = id;
@@ -63,11 +55,6 @@ public final class Project {
 
         public Builder name(String name) {
             this.name = name;
-            return this;
-        }
-
-        public Builder documents(Set<Document> documents) {
-            this.documents = documents;
             return this;
         }
 

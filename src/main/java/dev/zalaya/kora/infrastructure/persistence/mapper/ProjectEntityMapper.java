@@ -13,5 +13,4 @@ public interface ProjectEntityMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     ProjectEntity toEntity(Project domain);
-
 }

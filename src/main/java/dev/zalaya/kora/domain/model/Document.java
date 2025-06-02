@@ -7,17 +7,20 @@ public final class Document {
     private final Long id;
     private final String name;
     private final String path;
+    private final Project project;
 
-    public Document(Long id, String name, String path) {
+    public Document(Long id, String name, String path, Project project) {
         this.id = id;
         this.name = name;
         this.path = path;
+        this.project = project;
     }
 
     private Document(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.path = builder.path;
+        this.project = builder.project;
     }
 
     public Long getId() {
@@ -30,6 +33,10 @@ public final class Document {
 
     public String getPath() {
         return path;
+    }
+
+    public Project getProject() {
+        return project;
     }
 
     public static Builder builder() {
@@ -55,6 +62,7 @@ public final class Document {
         private Long id;
         private String name;
         private String path;
+        private Project project;
 
         public Builder id(Long id) {
             this.id = id;
@@ -68,6 +76,11 @@ public final class Document {
 
         public Builder path(String path) {
             this.path = path;
+            return this;
+        }
+
+        public Builder project(Project project) {
+            this.project = project;
             return this;
         }
 

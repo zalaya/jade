@@ -16,9 +16,6 @@ public class ProjectEntity extends AuditableEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<DocumentEntity> documents = new HashSet<>();
-
     protected ProjectEntity() {
 
     }
@@ -26,7 +23,6 @@ public class ProjectEntity extends AuditableEntity {
     private ProjectEntity(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
-        this.documents = builder.documents;
         setCreatedAt(builder.getCreatedAt());
         setUpdatedAt(builder.getUpdatedAt());
     }
@@ -45,14 +41,6 @@ public class ProjectEntity extends AuditableEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<DocumentEntity> getDocuments() {
-        return documents;
-    }
-
-    public void setPath(Set<DocumentEntity> documents) {
-        this.documents = documents;
     }
 
     public static Builder builder() {
@@ -77,7 +65,6 @@ public class ProjectEntity extends AuditableEntity {
 
         private Long id;
         private String name;
-        private Set<DocumentEntity> documents;
 
         public Builder id(Long id) {
             this.id = id;
@@ -86,11 +73,6 @@ public class ProjectEntity extends AuditableEntity {
 
         public Builder name(String name) {
             this.name = name;
-            return this;
-        }
-
-        public Builder documents(Set<DocumentEntity> documents) {
-            this.documents = documents;
             return this;
         }
 
