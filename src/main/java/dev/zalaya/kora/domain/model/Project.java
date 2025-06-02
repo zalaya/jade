@@ -1,16 +1,14 @@
 package dev.zalaya.kora.domain.model;
 
-import dev.zalaya.kora.domain.vo.DocumentReference;
-
 import java.util.*;
 
 public final class Project {
 
     private final Long id;
     private final String name;
-    private final Set<DocumentReference> documents;
+    private final Set<Document> documents;
 
-    public Project(Long id, String name, Set<DocumentReference> documents) {
+    public Project(Long id, String name, Set<Document> documents) {
         this.id = id;
         this.name = name;
         this.documents = documents;
@@ -30,7 +28,7 @@ public final class Project {
         return name;
     }
 
-    public Set<DocumentReference> getDocuments() {
+    public Set<Document> getDocuments() {
         return documents;
     }
 
@@ -56,7 +54,7 @@ public final class Project {
 
         private Long id;
         private String name;
-        private Set<DocumentReference> documents;
+        private Set<Document> documents;
 
         public Builder id(Long id) {
             this.id = id;
@@ -68,7 +66,7 @@ public final class Project {
             return this;
         }
 
-        public Builder documents(Set<DocumentReference> documents) {
+        public Builder documents(Set<Document> documents) {
             this.documents = documents;
             return this;
         }
