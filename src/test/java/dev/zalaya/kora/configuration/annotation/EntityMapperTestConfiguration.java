@@ -1,6 +1,6 @@
-package dev.zalaya.kora.annotation;
+package dev.zalaya.kora.configuration.annotation;
 
-import dev.zalaya.kora.infrastructure.persistence.mapper.*;
+import dev.zalaya.kora.infrastructure.persistence.entity.*;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.annotation.Import;

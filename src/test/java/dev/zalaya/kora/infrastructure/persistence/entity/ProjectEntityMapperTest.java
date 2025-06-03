@@ -1,16 +1,13 @@
-package dev.zalaya.kora.infrastructure.mapper;
+package dev.zalaya.kora.infrastructure.persistence.entity;
 
-import dev.zalaya.kora.annotation.EntityMapperTestConfiguration;
+import dev.zalaya.kora.configuration.annotation.EntityMapperTestConfiguration;
 import dev.zalaya.kora.domain.model.Project;
-import dev.zalaya.kora.infrastructure.persistence.entity.ProjectEntity;
-import dev.zalaya.kora.infrastructure.persistence.mapper.ProjectEntityMapper;
 
 import org.junit.jupiter.api.Test;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static dev.zalaya.kora.domain.model.ProjectFixture.aProjectWithIdAndName;
-import static dev.zalaya.kora.infrastructure.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.domain.model.ProjectFixture.aProjectWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,10 +15,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProjectEntityMapperTest {
 
     @Autowired
-    private ProjectEntityMapper mapper = Mappers.getMapper(ProjectEntityMapper.class);
+    private ProjectEntityMapper mapper;
 
     @Test
-    void givenProject_toEntity_returnProjectEntity() {
+    void givenProject_whenToEntity_thenReturnProjectEntity() {
         // Given
         Project domain = aProjectWithIdAndName();
 
@@ -34,7 +31,7 @@ class ProjectEntityMapperTest {
     }
 
     @Test
-    void givenProjectEntity_toDomain_returnProject() {
+    void givenProjectEntity_whenToDomain_thenReturnProject() {
         // Given
         ProjectEntity entity = aProjectEntityWithIdAndName();
 

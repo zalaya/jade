@@ -1,6 +1,8 @@
-package dev.zalaya.kora.domain.model;
+package dev.zalaya.kora.configuration.fixture.domain.model;
 
-import static dev.zalaya.kora.domain.model.ProjectFixture.aProjectWithIdAndName;
+import dev.zalaya.kora.domain.model.Document;
+
+import static dev.zalaya.kora.configuration.fixture.domain.model.ProjectFixture.aProjectWithIdAndName;
 
 public class DocumentFixture {
 

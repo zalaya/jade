@@ -1,17 +1,15 @@
-package dev.zalaya.kora.infrastructure.mapper;
+package dev.zalaya.kora.infrastructure.persistence.entity;
 
-import dev.zalaya.kora.annotation.EntityMapperTestConfiguration;
+import dev.zalaya.kora.configuration.annotation.EntityMapperTestConfiguration;
 import dev.zalaya.kora.domain.model.Document;
-import dev.zalaya.kora.infrastructure.persistence.entity.DocumentEntity;
-import dev.zalaya.kora.infrastructure.persistence.mapper.DocumentEntityMapper;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static dev.zalaya.kora.domain.model.DocumentFixture.aDocumentWithIdNamePathAndProject;
-import static dev.zalaya.kora.domain.model.ProjectFixture.aProjectWithIdAndName;
-import static dev.zalaya.kora.infrastructure.entity.DocumentEntityFixture.aDocumentEntityWithIdNamePathAndProjectEntity;
-import static dev.zalaya.kora.infrastructure.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.domain.model.DocumentFixture.aDocumentWithIdNamePathAndProject;
+import static dev.zalaya.kora.configuration.fixture.domain.model.ProjectFixture.aProjectWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.DocumentEntityFixture.aDocumentEntityWithIdNamePathAndProjectEntity;
+import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,7 +20,7 @@ class DocumentEntityMapperTest {
     private DocumentEntityMapper mapper;
 
     @Test
-    void givenDocument_toEntity_returnDocumentEntity() {
+    void givenDocument_whenToEntity_thenReturnDocumentEntity() {
         // Given
         Document domain = aDocumentWithIdNamePathAndProject();
 
@@ -39,7 +37,7 @@ class DocumentEntityMapperTest {
     }
 
     @Test
-    void givenDocumentEntity_toDomain_returnDocument() {
+    void givenDocumentEntity_whenToDomain_thenReturnDocument() {
         // Given
         DocumentEntity entity = aDocumentEntityWithIdNamePathAndProjectEntity();
 

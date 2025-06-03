@@ -1,4 +1,6 @@
-package dev.zalaya.kora.domain.model;
+package dev.zalaya.kora.configuration.fixture.domain.model;
+
+import dev.zalaya.kora.domain.model.Project;
 
 public class ProjectFixture {
 

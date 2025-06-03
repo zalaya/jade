@@ -1,7 +1,6 @@
-package dev.zalaya.kora.infrastructure.persistence.mapper;
+package dev.zalaya.kora.infrastructure.persistence.entity;
 
 import dev.zalaya.kora.domain.model.Document;
-import dev.zalaya.kora.infrastructure.persistence.entity.DocumentEntity;
 
 import org.mapstruct.*;
 

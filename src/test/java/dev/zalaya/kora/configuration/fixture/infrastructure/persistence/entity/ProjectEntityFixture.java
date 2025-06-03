@@ -1,4 +1,4 @@
-package dev.zalaya.kora.infrastructure.entity;
+package dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity;
 
 import dev.zalaya.kora.infrastructure.persistence.entity.ProjectEntity;
 

@@ -1,8 +1,8 @@
-package dev.zalaya.kora.infrastructure.entity;
+package dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity;
 
 import dev.zalaya.kora.infrastructure.persistence.entity.DocumentEntity;
 
-import static dev.zalaya.kora.infrastructure.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
 
 public class DocumentEntityFixture {
 

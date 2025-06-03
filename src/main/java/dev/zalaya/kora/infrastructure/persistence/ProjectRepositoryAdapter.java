@@ -1,9 +1,9 @@
-package dev.zalaya.kora.infrastructure.persistence.adapter;
+package dev.zalaya.kora.infrastructure.persistence;
 
 import dev.zalaya.kora.domain.model.Project;
 import dev.zalaya.kora.domain.port.outbound.persistence.ProjectRepository;
 import dev.zalaya.kora.infrastructure.persistence.entity.ProjectEntity;
-import dev.zalaya.kora.infrastructure.persistence.mapper.ProjectEntityMapper;
+import dev.zalaya.kora.infrastructure.persistence.entity.ProjectEntityMapper;
 import dev.zalaya.kora.infrastructure.persistence.repository.ProjectJpaRepository;
 
 import org.springframework.stereotype.Repository;
