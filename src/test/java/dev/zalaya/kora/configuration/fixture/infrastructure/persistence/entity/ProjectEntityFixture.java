@@ -8,10 +8,28 @@ public class ProjectEntityFixture {
 
     }
 
-    public static ProjectEntity aProjectEntityWithIdAndName() {
+    public static ProjectEntity aProjectEntityWithDefaultIdAndName() {
         return ProjectEntity.builder()
             .id(1L)
             .name("Project Entity")
+            .build();
+    }
+
+    public static ProjectEntity aProjectEntityWithDefaultName() {
+        return ProjectEntity.builder()
+            .name("Project Entity")
+            .build();
+    }
+
+    public static ProjectEntity aProjectEntityWithDefaultIdWithName(String name) {
+        return ProjectEntity.builder()
+            .id(1L)
+            .name(name)
+            .build();
+    }
+
+    public static ProjectEntity aProjectEntity() {
+        return ProjectEntity.builder()
             .build();
     }
 

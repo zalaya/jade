@@ -6,8 +6,8 @@ import dev.zalaya.kora.domain.model.Project;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static dev.zalaya.kora.configuration.fixture.domain.model.ProjectFixture.aProjectWithIdAndName;
-import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithIdAndName;
+import static dev.zalaya.kora.configuration.fixture.domain.model.ProjectFixture.aProjectWithDefaultIdAndName;
+import static dev.zalaya.kora.configuration.fixture.infrastructure.persistence.entity.ProjectEntityFixture.aProjectEntityWithDefaultIdAndName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +20,7 @@ class ProjectEntityMapperTest {
     @Test
     void givenProject_whenToEntity_thenReturnProjectEntity() {
         // Given
-        Project domain = aProjectWithIdAndName();
+        Project domain = aProjectWithDefaultIdAndName();
 
         // When
         ProjectEntity entity = mapper.toEntity(domain);
@@ -33,7 +33,7 @@ class ProjectEntityMapperTest {
     @Test
     void givenProjectEntity_whenToDomain_thenReturnProject() {
         // Given
-        ProjectEntity entity = aProjectEntityWithIdAndName();
+        ProjectEntity entity = aProjectEntityWithDefaultIdAndName();
 
         // When
         Project domain = mapper.toDomain(entity);

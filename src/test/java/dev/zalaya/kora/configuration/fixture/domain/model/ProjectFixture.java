@@ -8,7 +8,7 @@ public class ProjectFixture {
 
     }
 
-    public static Project aProjectWithIdAndName() {
+    public static Project aProjectWithDefaultIdAndName() {
         return Project.builder()
             .id(1L)
             .name("Project")
