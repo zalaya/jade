@@ -12,21 +12,12 @@ public final class Project {
         this.name = name;
     }
 
-    private Project(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-    }
-
     public Long getId() {
         return id;
     }
 
     public String getName() {
         return name;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     @Override
@@ -41,27 +32,6 @@ public final class Project {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
-    }
-
-    public static class Builder {
-
-        private Long id;
-        private String name;
-
-        public Builder id(Long id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Project build() {
-            return new Project(this);
-        }
-
     }
 
 }

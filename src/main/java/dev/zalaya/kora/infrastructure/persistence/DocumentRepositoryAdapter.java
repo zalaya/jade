@@ -2,8 +2,7 @@ package dev.zalaya.kora.infrastructure.persistence;
 
 import dev.zalaya.kora.domain.model.Document;
 import dev.zalaya.kora.domain.port.outbound.persistence.DocumentRepository;
-import dev.zalaya.kora.infrastructure.persistence.entity.DocumentEntity;
-import dev.zalaya.kora.infrastructure.persistence.entity.DocumentEntityMapper;
+import dev.zalaya.kora.infrastructure.persistence.entity.*;
 import dev.zalaya.kora.infrastructure.persistence.repository.DocumentJpaRepository;
 
 import org.springframework.stereotype.Repository;

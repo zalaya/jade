@@ -20,13 +20,6 @@ public class ProjectEntity extends AuditableEntity {
 
     }
 
-    private ProjectEntity(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        setCreatedAt(builder.getCreatedAt());
-        setUpdatedAt(builder.getUpdatedAt());
-    }
-
     public Long getId() {
         return id;
     }
@@ -43,10 +36,6 @@ public class ProjectEntity extends AuditableEntity {
         this.name = name;
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof ProjectEntity that)) {
@@ -59,32 +48,6 @@ public class ProjectEntity extends AuditableEntity {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
-    }
-
-    public static class Builder extends AuditableEntity.Builder<Builder> {
-
-        private Long id;
-        private String name;
-
-        public Builder id(Long id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public ProjectEntity build() {
-            return new ProjectEntity(this);
-        }
-
-        @Override
-        protected Builder self() {
-            return this;
-        }
-
     }
 
 }

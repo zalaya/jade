@@ -4,6 +4,7 @@ import dev.zalaya.kora.domain.model.Project;
 
 public interface ProjectRepository {
 
+    Project findById(Long id);
     Project save(Project project);
 
 }

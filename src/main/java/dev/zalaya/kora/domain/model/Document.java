@@ -6,21 +6,12 @@ public final class Document {
 
     private final Long id;
     private final String name;
-    private final String path;
     private final Project project;
 
-    public Document(Long id, String name, String path, Project project) {
+    public Document(Long id, String name, Project project) {
         this.id = id;
         this.name = name;
-        this.path = path;
         this.project = project;
-    }
-
-    private Document(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.path = builder.path;
-        this.project = builder.project;
     }
 
     public Long getId() {
@@ -31,16 +22,8 @@ public final class Document {
         return name;
     }
 
-    public String getPath() {
-        return path;
-    }
-
     public Project getProject() {
         return project;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     @Override
@@ -55,39 +38,6 @@ public final class Document {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
-    }
-
-    public static class Builder {
-
-        private Long id;
-        private String name;
-        private String path;
-        private Project project;
-
-        public Builder id(Long id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder path(String path) {
-            this.path = path;
-            return this;
-        }
-
-        public Builder project(Project project) {
-            this.project = project;
-            return this;
-        }
-
-        public Document build() {
-            return new Document(this);
-        }
-
     }
 
 }
