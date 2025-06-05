@@ -1,4 +1,4 @@
-package dev.zalaya.kora.infrastructure.persistence.entity;
+package dev.zalaya.kora.infrastructure.persistence.entity.shared;
 
 import jakarta.persistence.*;
 

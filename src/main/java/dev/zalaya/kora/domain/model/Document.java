@@ -6,12 +6,10 @@ public final class Document {
 
     private final Long id;
     private final String name;
-    private final Project project;
 
-    public Document(Long id, String name, Project project) {
+    public Document(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.project = project;
     }
 
     public Long getId() {
@@ -20,10 +18,6 @@ public final class Document {
 
     public String getName() {
         return name;
-    }
-
-    public Project getProject() {
-        return project;
     }
 
     @Override

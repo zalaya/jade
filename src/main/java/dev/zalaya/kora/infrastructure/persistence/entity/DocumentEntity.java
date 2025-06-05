@@ -1,5 +1,7 @@
 package dev.zalaya.kora.infrastructure.persistence.entity;
 
+import dev.zalaya.kora.infrastructure.persistence.entity.shared.AuditableEntity;
+
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -15,13 +17,6 @@ public class DocumentEntity extends AuditableEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "path", nullable = false, unique = true)
-    private String path;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "project_id", nullable = false)
-    private ProjectEntity project;
 
     protected DocumentEntity() {
 
@@ -41,22 +36,6 @@ public class DocumentEntity extends AuditableEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public ProjectEntity getProject() {
-        return project;
-    }
-
-    public void setProject(ProjectEntity project) {
-        this.project = project;
     }
 
     @Override

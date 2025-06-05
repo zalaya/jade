@@ -4,7 +4,7 @@ import dev.zalaya.kora.domain.model.Document;
 
 import org.mapstruct.*;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = ProjectEntityMapper.class)
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface DocumentEntityMapper {
 
     Document toDomain(DocumentEntity entity);
